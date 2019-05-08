@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A289461A-8FA0-45DD-B545-8540161255C1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BomberMan.Logic</RootNamespace>
+    <AssemblyName>BomberMan.Logic</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=8.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.8.0.0\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonServiceLocator, Version=2.0.4.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.2.0.4\lib\net46\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight, Version=5.4.1.0, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras, Version=5.4.1.0, Culture=neutral, PublicKeyToken=669f0b5e8f868abf, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.Extras.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.4.1.0, Culture=neutral, PublicKeyToken=5f873c45e98af8a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Feature\GameLogic\BombHandling\BombHandler.cs" />
+    <Compile Include="Feature\GameLogic\BombHandling\Interfaces\IBombHandler.cs" />
+    <Compile Include="Feature\GameLogic\PlayerHandling\PlayerMoving\Interfaces\IPlayerToDownMover.cs" />
+    <Compile Include="Feature\GameLogic\PlayerHandling\PlayerMoving\Interfaces\IPlayerToLeftMover.cs" />
+    <Compile Include="Feature\GameLogic\PlayerHandling\PlayerMoving\Interfaces\IPlayerToRightMover.cs" />
+    <Compile Include="Feature\GameLogic\PlayerHandling\PlayerMoving\Interfaces\IPlayerToUpMover.cs" />
+    <Compile Include="Feature\GameLogic\PlayerHandling\PlayerMoving\PlayerToDownMover.cs" />
+    <Compile Include="Feature\GameLogic\PlayerHandling\PlayerMoving\PlayerToLeftMover.cs" />
+    <Compile Include="Feature\GameLogic\PlayerHandling\PlayerMoving\PlayerToRightMover.cs" />
+    <Compile Include="Feature\GameLogic\PlayerHandling\PlayerMoving\PlayerToUpMover.cs" />
+    <Compile Include="Feature\NpcMovement\NpcDeleting\Interfaces\INpcDeleter.cs" />
+    <Compile Include="Feature\NpcMovement\NpcDirectionMoving\Interfaces\INpcToDownMover.cs" />
+    <Compile Include="Feature\NpcMovement\NpcDirectionMoving\Interfaces\INpcToLeftMover.cs" />
+    <Compile Include="Feature\NpcMovement\NpcDirectionMoving\Interfaces\INpcToRightMover.cs" />
+    <Compile Include="Feature\NpcMovement\NpcDirectionMoving\Interfaces\INpcToUpMover.cs" />
+    <Compile Include="Feature\NpcMovement\NpcTurning\Interfaces\INpcTurner.cs" />
+    <Compile Include="Feature\NpcMovement\NpcDeleting\NpcDeleter.cs" />
+    <Compile Include="Feature\NpcMovement\NpcMover.cs" />
+    <Compile Include="Feature\NpcMovement\Interfaces\INpcMover.cs" />
+    <Compile Include="Feature\Converting\ElementToTypeConverting\ElementToTypeConverter.cs" />
+    <Compile Include="Feature\Converting\ElementToTypeConverting\Interfaces\IElementToTypeConverter.cs" />
+    <Compile Include="Feature\Converting\MapElementMapConverting\MapElementMapConverter.cs" />
+    <Compile Include="Feature\GameLogic\GameLogic.cs" />
+    <Compile Include="Feature\GameLogic\Interfaces\IGameLogic.cs" />
+    <Compile Include="Feature\GameModel\IGameModel.cs" />
+    <Compile Include="Feature\GameModel\Interfaces\IGameModel.cs" />
+    <Compile Include="Feature\GameSaving\GameSaver.cs" />
+    <Compile Include="Feature\GameSaving\Interfaces\IGameSaver.cs" />
+    <Compile Include="Feature\GameStateFinding\GameStateFinder.cs" />
+    <Compile Include="Feature\HighScoreFinding\HighScoreFinder.cs" />
+    <Compile Include="Feature\HighScoreFinding\Interfaces\IHighScoreFinder.cs" />
+    <Compile Include="Feature\MapBuilding\Factory\Interfaces\IMapElementFactory.cs" />
+    <Compile Include="Feature\MapBuilding\Factory\MapElementFactory.cs" />
+    <Compile Include="Feature\MapBuilding\Interfaces\IMapBuilder.cs" />
+    <Compile Include="Feature\MapBuilding\MapBuilder.cs" />
+    <Compile Include="Feature\MapBuilding\XmlElementFinding\Interfaces\IXmlElementFinder.cs" />
+    <Compile Include="Feature\MapBuilding\XmlElementFinding\XmlElementFinder.cs" />
+    <Compile Include="Feature\MapBuilding\XmlReading\XmlReader.cs" />
+    <Compile Include="Feature\NpcMovement\NpcDirectionMoving\NpcToDownMover.cs" />
+    <Compile Include="Feature\NpcMovement\NpcDirectionMoving\NpcToLeftMover.cs" />
+    <Compile Include="Feature\NpcMovement\NpcDirectionMoving\NpcToRightMover.cs" />
+    <Compile Include="Feature\NpcMovement\NpcDirectionMoving\NpcToUpMover.cs" />
+    <Compile Include="Feature\NpcMovement\NpcTurning\NpcTurner.cs" />
+    <Compile Include="Feature\PasswordChecking\Interfaces\IPasswordChecker.cs" />
+    <Compile Include="Feature\PasswordChecking\PasswordChecker.cs" />
+    <Compile Include="Feature\PlayerFinding\Interfaces\IPlayerFinder.cs" />
+    <Compile Include="Feature\PlayerFinding\PlayerFinder.cs" />
+    <Compile Include="Feature\PlayerPositionFinding\Interfaces\IPositionFinder.cs" />
+    <Compile Include="Feature\PlayerPositionFinding\PositionFinder.cs" />
+    <Compile Include="Feature\UpdateServices\Interfaces\IUpdateService.cs" />
+    <Compile Include="Feature\UpdateServices\UpdateService.cs" />
+    <Compile Include="Feature\UploadServices\Interfaces\IUploadService.cs" />
+    <Compile Include="Feature\UploadServices\UploadService.cs" />
+    <Compile Include="MapElements\BaseElement\MapElementContainer.cs" />
+    <Compile Include="MapElements\Bomb.cs" />
+    <Compile Include="MapElements\BreakableWall.cs" />
+    <Compile Include="MapElements\EmptyField.cs" />
+    <Compile Include="MapElements\Flame.cs" />
+    <Compile Include="MapElements\Interfaces\IBlowingElement.cs" />
+    <Compile Include="MapElements\Interfaces\IMapElement.cs" />
+    <Compile Include="MapElements\Interfaces\IValuableObject.cs" />
+    <Compile Include="MapElements\NonBreakableWall.cs" />
+    <Compile Include="MapElements\NonPlayableCharacter.cs" />
+    <Compile Include="MapElements\Wall.cs" />
+    <Compile Include="Model\EntityBaseDto.cs" />
+    <Compile Include="Model\GameStateDto.cs" />
+    <Compile Include="Model\HighScoreDto.cs" />
+    <Compile Include="Model\MapElementDto.cs" />
+    <Compile Include="Model\PlayerDto.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BomberMan.Data\BomberMan.Data.csproj">
+      <Project>{00877AEB-925B-404F-8AF4-4CC61160369B}</Project>
+      <Name>BomberMan.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BomberMan.Repository\BomberMan.Repository.csproj">
+      <Project>{A9F13113-578A-4994-B057-B64984F7F01C}</Project>
+      <Name>BomberMan.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Feature\Converting\MapElementMapConverting\Interfaces\" />
+    <Folder Include="Feature\GameStateFinding\Interfaces\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

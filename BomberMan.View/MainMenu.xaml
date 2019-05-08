@@ -1,0 +1,31 @@
+﻿<Window x:Class="BomberMan.View.MainMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BomberMan.View"
+        mc:Ignorable="d"
+        Title="Blast them" Height="450" Width="350" WindowStartupLocation="CenterScreen" FontFamily="Gloucester MT Extra Condensed">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="267*"/>
+            <RowDefinition Height="112*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Hello, " FontSize="30" Margin="0,0,0,265" Grid.RowSpan="2"></Label>
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="240" Width="220">
+            <Button Content="New game" Grid.Row="1" Width="200" Height="40" Margin="10"  FontSize="25"/>
+            <Button Content="Highscore" Grid.Row="1" Width="200" Height="40" Margin="10"  FontSize="25"/>
+            <Button Content="Settings" Grid.Row="1" Width="200" Height="40" Margin="10" FontSize="25"/>
+            <Button Content="Exit" Grid.Row="1" Width="200" Height="40" Margin="10" FontSize="25"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Opacity="0.9">
+            <StackPanel.Effect>
+                <DropShadowEffect BlurRadius="15" Color="#FFFF9700" ShadowDepth="3"/>
+            </StackPanel.Effect>
+            <Image Width="325" Source="titleMenu.png" HorizontalAlignment="Center"/>
+            <Label HorizontalAlignment="Right" Content="Made by: Röhberg &amp; Ritzl" Foreground="Gray" FontSize="14"></Label>
+        </StackPanel>
+
+    </Grid>
+</Window>

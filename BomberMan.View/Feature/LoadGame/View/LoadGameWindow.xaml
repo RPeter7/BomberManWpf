@@ -1,0 +1,53 @@
+﻿<Window x:Class="BomberMan.View.Feature.LoadGame.View.LoadGameWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Blast them" Height="450" Width="350" WindowStartupLocation="CenterScreen"
+        WindowStyle="None" x:Name="LoadGameWindows"
+        DataContext="{Binding Source={StaticResource Locator}, Path=LoadGameViewModel}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Button Background="{x:Null}" 
+                    BorderBrush="{x:Null}" 
+                    HorizontalAlignment="Right" 
+                    VerticalAlignment="Top" 
+                    Command="{Binding CloseWindowCommand}" CommandParameter="{Binding ElementName=LoadGameWindows}">
+            <materialDesign:PackIcon 
+                    Kind="Power" 
+                    Height="25" 
+                    Width="25" 
+                    Foreground="Black" RenderTransformOrigin="0.42,0.42"/>
+        </Button>
+        <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label Content="Select Game" FontSize="25" VerticalAlignment="Center" Margin="0,5,0,0" HorizontalAlignment="Center" FontWeight="Bold"/>
+            <ListBox Width="250" Height="200"
+                     BorderThickness="0.5"
+                     BorderBrush="Black"
+                     ItemsSource="{Binding PlayersGameStates}"
+                     SelectedItem="{Binding SelectedGameState}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Label Content="{Binding CreatedDate}" 
+                               ContentStringFormat="Save: {0}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Button Margin="10"
+                    Content="Start"
+                    Command="{Binding StartGameCommand}"/>
+        </StackPanel>
+        <!--<StackPanel Grid.Row="2" VerticalAlignment="Center">
+            <Image Width="140" Source="/Images/HighScore.jpg" VerticalAlignment="Center" Margin="0,0,0,5">
+                <Image.Effect>
+                    <DropShadowEffect BlurRadius="12" Color="#FFFF0F0F" RenderingBias="Quality" ShadowDepth="10" Direction="320"/>
+                </Image.Effect>
+            </Image>
+        </StackPanel>-->
+    </Grid>
+</Window>

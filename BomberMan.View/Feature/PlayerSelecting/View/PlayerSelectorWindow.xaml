@@ -1,0 +1,65 @@
+﻿<Window x:Class="BomberMan.View.Feature.PlayerSelecting.View.PlayerSelectorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="14"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="BomberMan - SignUp" Height="175" Width="280" 
+        WindowStyle="None" WindowStartupLocation="CenterScreen" x:Name="PlayerSelectorWindows"
+        DataContext="{Binding Source={StaticResource Locator}, Path=PlayerSelectorViewModel}">
+    <Grid Margin="11">
+        <Grid VerticalAlignment="Top" 
+              Margin="0 3 0 0">
+            <Button Background="{x:Null}" 
+                    BorderBrush="{x:Null}" 
+                    HorizontalAlignment="Right" 
+                    VerticalAlignment="Top" 
+                    Command="{Binding CloseCommand}" CommandParameter="{Binding ElementName=PlayerSelectorWindows}" Margin="0,-19,-27,0">
+                <materialDesign:PackIcon 
+                    Kind="Power" 
+                    Height="25" 
+                    Width="25" 
+                    Foreground="Black"/>
+            </Button>
+        </Grid>
+        <StackPanel>
+            <TextBlock Text="Válassz ellenfelet!" 
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Top" 
+                       Margin="5" 
+                       Foreground="Gray"
+                       FontSize="22"
+                       FontWeight="Bold" />
+            <StackPanel Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="Account" 
+                                         VerticalAlignment="Center" 
+                                         Height="25" Width="25"/>
+                <ComboBox 
+                    materialDesign:HintAssist.Hint="Ellenfél Játékos"
+                    Margin="5"
+                    VerticalAlignment="Center" Width="210"
+                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                    SelectedItem="{Binding PlayerTwo}"
+                    ItemsSource="{Binding Players}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding Name}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </StackPanel>
+            <Button Content="Mehet"
+                    Margin="10"
+                    Command="{Binding StartGameCommand}"
+                    CommandParameter="{Binding ElementName=PlayerSelectorWindows}"/>
+        </StackPanel>
+    </Grid>
+</Window>
